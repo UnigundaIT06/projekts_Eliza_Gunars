@@ -17,12 +17,16 @@ for i in range(1,len(visas_sedvietas)):
     prieks_izdrukasanas = prieks_izdrukasanas +' / '+ str(visas_sedvietas[i])
 print(prieks_izdrukasanas)
 
+izveleta_sedvieta = input('=> ')
 
-
-prieks_izdrukasanas = visas_sedvietas[0]
-for i in range(1,len(visas_sedvietas)):
-    prieks_izdrukasanas = prieks_izdrukasanas +' / '+ str(visas_sedvietas[i])
-print(prieks_izdrukasanas)
+while True:
+    if izveleta_sedvieta not in visas_sedvietas:
+        print('Kļūda! Sēdvieta ir aizņemta vai neeksistē!')
+        izveleta_sedvieta = input('=> ')
+    else:
+        print('Sēdvieta rezervēta!')
+        print('===================')
+        break
 
 
 #Sēdvietas izvēle:
