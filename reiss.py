@@ -24,7 +24,6 @@ print("Reisa izvēle: ")
 for n in range(1,11):
     print(n,reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena) ) 
     
-#JĀPABEIDZ ŠIS!!!
 izvele = int(input("=> "))
 if izvele in range(1,11):
     print("="*20)
