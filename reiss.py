@@ -25,12 +25,12 @@ for n in range(1,11):
     print(n,reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena) ) 
     
 #JĀPABEIDZ ŠIS!!!
-izvele = input("=> ")
-if izvele not in range(1,11):
-    print("Kļūda! Šāds reiss neeksistē! ")
-else:
+izvele = int(input("=> "))
+if izvele in range(1,11):
     print("="*20)
     print("Sēdvietas izvēle: ")
     print("Pieejamas šādas sēdvietas: ")
+else:
+    print("Kļūda! Šāds reiss neeksistē! ")
     
 
