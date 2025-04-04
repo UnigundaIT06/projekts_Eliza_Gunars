@@ -19,6 +19,11 @@ print(prieks_izdrukasanas)
 
 
 
+prieks_izdrukasanas = visas_sedvietas[0]
+for i in range(1,len(visas_sedvietas)):
+    prieks_izdrukasanas = prieks_izdrukasanas +' / '+ str(visas_sedvietas[i])
+print(prieks_izdrukasanas)
+
 
 #Sēdvietas izvēle:
 #Pieejamas šādas sēdvietas:
