@@ -28,12 +28,3 @@ while True:
         print('===================')
         break
 
-
-#Sēdvietas izvēle:
-#Pieejamas šādas sēdvietas:
-#B2 / B4 / A9 / C7 / E3
-#=> F1
-#Kļūda! Sēdvieta ir aizņemta vai neeksistē!
-#=> B4
-#Sēdvieta rezervēta!
-#===================
