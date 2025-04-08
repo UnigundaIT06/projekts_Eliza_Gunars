@@ -1,4 +1,4 @@
-
+import random
 
 print("Labdien, laipni lūgti lidostas lidO2 programmā.")
 def datums():
@@ -18,9 +18,7 @@ def datums():
         print('===================')
         return izveletais_datums
 
-#Importēts random
-import random
-
+datums()
 #4 saraksti ar vajadzīgo informāciju sastāvā
 reisa_numurs = [234, 156, 780, 356, 987, 404, 342, 764, 900, 135]
 reisa_galamerkis = ["Vācija", "Francija", "Nīderlande", "Polija", "Spānija", "Itālija", "Portugāle", "Grieķija", "Dānija", "Zviedrija"]
@@ -51,7 +49,6 @@ if izvele in range(1,11):
 else:
     print("Kļūda! Šāds reiss neeksistē! ")
 
-import random
 
 print('Sēdvietas izvēle:\nPieejamas šādas sēdvietas:')
 visas_sedvietas = ['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10',
@@ -70,14 +67,13 @@ for i in range(1,len(visas_sedvietas)):
     prieks_izdrukasanas = prieks_izdrukasanas +' / '+ str(visas_sedvietas[i])
 print(prieks_izdrukasanas)
 
+izveleta_sedvieta = input('=> ')
 
-
-
-#Sēdvietas izvēle:
-#Pieejamas šādas sēdvietas:
-#B2 / B4 / A9 / C7 / E3
-#=> F1
-#Kļūda! Sēdvieta ir aizņemta vai neeksistē!
-#=> B4
-#Sēdvieta rezervēta!
-#===================
+while True:
+    if izveleta_sedvieta not in visas_sedvietas:
+        print('Kļūda! Sēdvieta ir aizņemta vai neeksistē!')
+        izveleta_sedvieta = input('=> ')
+    else:
+        print('Sēdvieta rezervēta!')
+        print('===================')
+        break
