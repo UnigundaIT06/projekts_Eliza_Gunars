@@ -20,16 +20,21 @@ def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena):
 
 print("="*20)
 print("Reisa izvēle: ")
+saraksts = []
 #For cikls, kas iziet cauri sarakstiem izprintējot random teikumus
 for n in range(1,11):
-    print(n,reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena) ) 
+    saraksts.append(reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena))
+    print(n,saraksts[n-1]) 
     
+
 izvele = int(input("=> "))
 if izvele in range(1,11):
     print("="*20)
     print("Sēdvietas izvēle: ")
     print("Pieejamas šādas sēdvietas: ")
+    
 else:
     print("Kļūda! Šāds reiss neeksistē! ")
-    
+
+saraksts[izvele-1]
 
