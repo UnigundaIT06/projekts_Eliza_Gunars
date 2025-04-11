@@ -76,7 +76,6 @@ class Dati:
                 print('===================')
                 return izveleta_sedvieta
 
-    
 
 def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena):
     reiss = random.choice(reisa_numurs)
