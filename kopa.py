@@ -2,7 +2,7 @@ import random
 print("Labdien, laipni lūgti lidostas lidO2 programmā.")
 class Dati:    
 
-    def datums(self):
+    def datums():
         import datetime
         datums_ar_laiku = datetime.datetime.now()
         datums = datums_ar_laiku.strftime('%d-%m-%Y')
@@ -20,7 +20,7 @@ class Dati:
                 return datums1                  
 
 
-    def reisa_izvele(self):
+    def reisa_izvele():
         saraksts = []
         #4 saraksti ar vajadzīgo informāciju sastāvā
         reisa_numurs = [234, 156, 780, 356, 987, 404, 342, 764, 900, 135]
@@ -49,7 +49,7 @@ class Dati:
 
    
 
-    def sedvietas(self):
+    def sedvietas():
         print('Sēdvietas izvēle:\nPieejamas šādas sēdvietas:')
         visas_sedvietas = ['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10',
         'B1','B2','B3','B4','B5','B6','B7','B8','B9','B10',
@@ -67,16 +67,16 @@ class Dati:
             prieks_izdrukasanas = prieks_izdrukasanas +' / '+ str(visas_sedvietas[i])
         print(prieks_izdrukasanas)
 
-        self.izveleta_sedvieta = input('=> ')
+        izveleta_sedvieta = input('=> ')
 
         while True:
-            if self.izveleta_sedvieta not in visas_sedvietas:
+            if izveleta_sedvieta not in visas_sedvietas:
                 print('Kļūda! Sēdvieta ir aizņemta vai neeksistē!')
-                self.izveleta_sedvieta = input('=> ')
+                izveleta_sedvieta = input('=> ')
             else:
                 print('Sēdvieta rezervēta!')
                 print('===================')
-                return self.izveleta_sedvieta
+                return izveleta_sedvieta
 
     
 
@@ -92,13 +92,40 @@ def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena):
 
 
 
-objekts = Dati()
+class Saglaba:
+    def __init__(self,datums,reiss,sedvieta):
+        self.datums = datums
+        self.reiss = reiss
+        self.sedvieta = sedvieta
+    
+    def saglabat(self,dati):
+        dati1,nummurs = dati.split('+++')
+        nosaukums = f'Bilete_{nummurs}'
+        with open(nosaukums+'.txt',)as file:
 
-datums = objekts.datums()
-reis = objekts.reisa_izvele()
-sedvieta = objekts.sedvietas()
+    def biletes_parbaude(self):
+        print('Vai šī ir jūsu biļete? (J/N)')
+        print('Datums - Galapunkts - Laiks - Reiss - Sēdvieta - Cena')
+        nummurs,valsts,laiks,cena = self.reiss.split(' - ')
+        dati = f'{self.datums} - {valsts} - {laiks} - {nummurs} - {self.sedvieta} - {cena}'
+        print(dati)
+        while True:
+            izvele = input('=> ')
+            if izvele == 'J' or izvele == 'j':
+                return f'{dati}+++{nummurs}' 
+            elif izvele == 'N' or izvele == 'n':
+                exit('Atvainojos par traucēšanu bet viss jāsāk no sākuma!!')
+            else:
+                print('jūs ievadijāt nepareizi ievadiet vēlreiz (J/N)')
 
-print(datums)
-print(reis)
-print(sedvieta)
 
+
+#Vai šī ir jūsu biļete? (J/N)
+#Datums - Galapunkts - Laiks - Reiss - Sēdvieta - Cena
+#13-04-2025 - Vācija - 12:00 - 156 - B4 - 150 EUR
+#=> J
+#Biļete ir saglabāta failā bilete_156 un aizsūtīta uz jūsu e-pastu!
+
+
+objekts2 = Saglaba(Dati.datums(),Dati.reisa_izvele(),Dati.sedvietas())
+objekts2.saglabat(objekts2.biletes_parbaude())
