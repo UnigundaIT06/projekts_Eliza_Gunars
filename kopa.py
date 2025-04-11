@@ -1,4 +1,5 @@
 import random
+print('\n')
 print("Labdien, laipni lūgti lidostas lidO2 programmā.")
 class Dati:    
 
@@ -27,7 +28,6 @@ class Dati:
         reisa_galamerkis = ["Vācija", "Francija", "Nīderlande", "Polija", "Spānija", "Itālija", "Portugāle", "Grieķija", "Dānija", "Zviedrija"]
         reisa_laiks = ["10-10", "18-35", "09-15", "05-30", "12-00", "15-00", "23-30", "22-10", "13-00", "05-20"]
         reisa_cena = ["47 EUR", "150 EUR", "3734 EUR", "10000 EUR", "265 EUR", "354 EUR", "1200 EUR", "570 EUR", "988 EUR", "155 EUR"]
-        print("="*20)
         print("Reisa izvēle: ")
         #For cikls, kas iziet cauri sarakstiem izprintējot random teikumus
         for n in range(1,11):
