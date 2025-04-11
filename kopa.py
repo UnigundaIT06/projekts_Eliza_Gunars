@@ -16,7 +16,7 @@ class Dati:
             if izveletais_datums <= datetime_datums:
                 izveletais_datums = datetime.strptime(input('Kļūda! Datums nedrīkst būt agrāks par rītdienu: '),'%d-%m-%Y')
             else:
-                print('===================')
+                print('====================')
                 datums1,nevajadzigs = str(izveletais_datums).split(' ')
                 return datums1                  
 
@@ -73,7 +73,7 @@ class Dati:
                 izveleta_sedvieta = input('=> ')
             else:
                 print('Sēdvieta rezervēta!')
-                print('===================')
+                print('====================')
                 return izveleta_sedvieta
 
 
