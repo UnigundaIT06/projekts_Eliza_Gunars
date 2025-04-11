@@ -29,14 +29,14 @@ class Dati: #iegūst visus vajadzīgos datus
         print("Reisa izvēle: ")
         #For cikls, kas iziet cauri sarakstiem izprintējot random teikumus
         for n in range(1,11):
-            saraksts.append(reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena))
+            saraksts.append(reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena)) #Lai vēlāk var izēlēties reisu
             print(n,saraksts[n-1]) 
         while True:
             try:    
-                while True:
+                while True: #Reisa izvēle
                     izvele = int(input("=> "))
                     if izvele in range(1,11):
-                        print("="*20)
+                        print("====================")
                         return saraksts[izvele-1]
                     else:
                         print("Kļūda! Šāds reiss neeksistē! ")
@@ -47,7 +47,7 @@ class Dati: #iegūst visus vajadzīgos datus
 
     def sedvietas():
         print('Sēdvietas izvēle:\nPieejamas šādas sēdvietas:')
-        visas_sedvietas = ['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10',
+        visas_sedvietas = ['A1','A2','A3','A4','A5','A6','A7','A8','A9','A10',#Visas iespējamās sēdvietas
         'B1','B2','B3','B4','B5','B6','B7','B8','B9','B10',
         'C1','C2','C3','C4','C5','C6','C7','C8','C9','C10',
         'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10',
