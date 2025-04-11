@@ -78,16 +78,12 @@ class Dati:
 
     
 
-
-
 def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena):
     reiss = random.choice(reisa_numurs)
     galamerkis = random.choice(reisa_galamerkis)
     laiks = random.choice(reisa_laiks)
     cena = random.choice(reisa_cena)
     return f"{reiss} - {galamerkis} - {laiks} - {cena}"
-
-
 
 
 class Saglaba:
@@ -117,14 +113,6 @@ class Saglaba:
                 exit('Atvainojos par traucēšanu bet viss jāsāk no sākuma!!')
             else:
                 print('jūs ievadijāt nepareizi ievadiet vēlreiz (J/N)')
-
-
-
-#Vai šī ir jūsu biļete? (J/N)
-#Datums - Galapunkts - Laiks - Reiss - Sēdvieta - Cena
-#13-04-2025 - Vācija - 12:00 - 156 - B4 - 150 EUR
-#=> J
-#Biļete ir saglabāta failā bilete_156 un aizsūtīta uz jūsu e-pastu!
 
 
 objekts2 = Saglaba(Dati.datums(),Dati.reisa_izvele(),Dati.sedvietas())
