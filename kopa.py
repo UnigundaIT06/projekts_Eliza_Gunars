@@ -39,8 +39,6 @@ class Dati:
                     izvele = int(input("=> "))
                     if izvele in range(1,11):
                         print("="*20)
-                        print("Sēdvietas izvēle: ")
-                        print("Pieejamas šādas sēdvietas: ")
                         return saraksts[izvele-1]
                     else:
                         print("Kļūda! Šāds reiss neeksistē! ")
@@ -81,7 +79,7 @@ class Dati:
     
 
 
-    #KLASE reiss?
+
 def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena):
     reiss = random.choice(reisa_numurs)
     galamerkis = random.choice(reisa_galamerkis)
