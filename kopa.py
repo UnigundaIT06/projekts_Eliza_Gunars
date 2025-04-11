@@ -1,24 +1,22 @@
-import random
+import random #lai vēlāk varētu izdzēst sēdvietas
 print('\n')
 print("Labdien, laipni lūgti lidostas lidO2 programmā.")
-class Dati:    
+class Dati: #iegūst visus vajadzīgos datus
 
-    def datums():
+    def datums(): #iegūst datumu
         import datetime
-        datums_ar_laiku = datetime.datetime.now()
+        datums_ar_laiku = datetime.datetime.now() #iegūst šodienu un laiku
         datums = datums_ar_laiku.strftime('%d-%m-%Y')
-
         from datetime import datetime
-
-        datetime_datums = datetime.strptime(datums,'%d-%m-%Y')
+        datetime_datums = datetime.strptime(datums,'%d-%m-%Y')#noformē datumu
         izveletais_datums = datetime.strptime(input('Ieraksti datumu kurā gribi lidot dd-mm-gggg: '),'%d-%m-%Y')
-        while True:
+        while True: #Ja datums neder
             if izveletais_datums <= datetime_datums:
                 izveletais_datums = datetime.strptime(input('Kļūda! Datums nedrīkst būt agrāks par rītdienu: '),'%d-%m-%Y')
             else:
                 print('====================')
-                datums1,nevajadzigs = str(izveletais_datums).split(' ')
-                return datums1                  
+                datums1,nevajadzigs = str(izveletais_datums).split(' ') #atdala laiku
+                return datums1  #atgriež izvēlēto datumu          
 
 
     def reisa_izvele():
@@ -96,7 +94,7 @@ class Saglaba:
         nosaukums = f'Bilete_{nummurs}'
         with open(nosaukums+'.txt','a',encoding='utf8')as file:
             file.write(dati1)
-            print(f'Biļete ir saglabāta failā {nosaukums} un aizsūtīta uz jūsu e-pastu!')
+            exit(f'Biļete ir saglabāta failā {nosaukums} un aizsūtīta uz jūsu e-pastu!')
 
     def biletes_parbaude(self):
         print('Vai šī ir jūsu biļete? (J/N)')
@@ -109,10 +107,16 @@ class Saglaba:
             if izvele == 'J' or izvele == 'j':
                 return f'{dati}+++{nummurs}' 
             elif izvele == 'N' or izvele == 'n':
-                exit('Atvainojos par traucēšanu bet viss jāsāk no sākuma!!')
+                print('Atvainojos par traucēšanu bet viss jāsāk no sākuma!!')
+                break
             else:
                 print('jūs ievadijāt nepareizi ievadiet vēlreiz (J/N)')
+        
 
-
-objekts2 = Saglaba(Dati.datums(),Dati.reisa_izvele(),Dati.sedvietas())
-objekts2.saglabat(objekts2.biletes_parbaude())
+while True:
+    bilete = Saglaba(Dati.datums(),Dati.reisa_izvele(),Dati.sedvietas())
+    dati = bilete.biletes_parbaude()
+    if dati == '':
+        bilete.saglabat(dati)
+    else:
+        print()
