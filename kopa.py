@@ -15,10 +15,9 @@ class Dati:
             if izveletais_datums <= datetime_datums:
                 izveletais_datums = datetime.strptime(input('Kļūda! Datums nedrīkst būt agrāks par rītdienu: '),'%d-%m-%Y')
             else:
-                break
-            print('===================')
-            return izveletais_datums
-
+                print('===================')
+                datums1,nevajadzigs = str(izveletais_datums).split(' ')
+                return datums1                  
 
 
     def reisa_izvele(self):
@@ -45,7 +44,6 @@ class Dati:
                         return saraksts[izvele-1]
                     else:
                         print("Kļūda! Šāds reiss neeksistē! ")
-                        izvele = int(input("=> "))
             except ValueError:
                 print('Skaitlim jābūt no 1 līdz 10!!')
 
@@ -96,7 +94,11 @@ def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena):
 
 objekts = Dati()
 
-print(objekts.datums())
-print(objekts.reisa_izvele())
-print(objekts.sedvietas())
+datums = objekts.datums()
+#reis = objekts.reisa_izvele()
+#sedvieta = objekts.sedvietas()
+
+print(datums)
+#print(reis)
+#print(sedvieta)
 
