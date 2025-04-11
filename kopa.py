@@ -101,7 +101,9 @@ class Saglaba:
     def saglabat(self,dati):
         dati1,nummurs = dati.split('+++')
         nosaukums = f'Bilete_{nummurs}'
-        with open(nosaukums+'.txt',)as file:
+        with open(nosaukums+'.txt','a',encoding='utf8')as file:
+            file.write(dati1)
+            print(f'Biļete ir saglabāta failā {nosaukums} un aizsūtīta uz jūsu e-pastu!')
 
     def biletes_parbaude(self):
         print('Vai šī ir jūsu biļete? (J/N)')
