@@ -99,7 +99,9 @@ class Saglaba:#Tiek veikta datu saglabāšana
         with open(nosaukums+'.txt','a',encoding='utf8')as file:
             file.write('Datums - Galapunkts - Laiks - Reiss - Sēdvieta - Cena - ieteicamais ierašanās laiks\n')
             file.write(f'{dati1} - {ieteicamais_laiks}\n')#Izvēlētā biļete tiek ierakstīta failā
-            exit(f'Biļete ir saglabāta failā {nosaukums} un aizsūtīta uz jūsu e-pastu!')
+            print(f'Biļete ir saglabāta failā {nosaukums} un aizsūtīta uz jūsu e-pastu!')
+            print('====================')
+            exit("Paldies! Par lidojuma rezervēšanu!")
 
     def biletes_parbaude(self):
         print('Vai šī ir jūsu biļete? (J/N)')
