@@ -83,7 +83,7 @@ def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena):
     return f"{reiss} - {galamerkis} - {laiks} - {cena}"
 
 
-class Saglaba:
+class Saglaba: #Tiek veikta datu saglabāšana
     def __init__(self,datums,reiss,sedvieta):
         self.datums = datums
         self.reiss = reiss
@@ -93,7 +93,7 @@ class Saglaba:
         dati1,numurs = dati.split('+++')
         nosaukums = f'Bilete_{numurs}'
         with open(nosaukums+'.txt','a',encoding='utf8')as file:
-            file.write(dati1)
+            file.write(dati1) #Izvēlētā biļete tiek ierakstīta failā
             exit(f'Biļete ir saglabāta failā {nosaukums} un aizsūtīta uz jūsu e-pastu!')
 
     def biletes_parbaude(self):
@@ -103,8 +103,9 @@ class Saglaba:
         dati = f'{self.datums} - {valsts} - {laiks} - {numurs} - {self.sedvieta} - {cena}'
         print(dati)
         while True:
-            izvele = input('=> ')
+            izvele = input('=> ') #Lietotājs izvēlas vai biļete viņam der vai neder
             if izvele == 'J' or izvele == 'j':
+                print("* * * Paldies, ka lietojāt lidO2 programmu!. \n* * * Tiekamies atkal!")
                 return f'{dati}+++{numurs}' 
             elif izvele == 'N' or izvele == 'n':
                 print('Reisa izvēle ir jāsāk no sākuma! ')
@@ -120,4 +121,4 @@ while True:
         print()
     else:
         bilete.saglabat(dati) #Dati tiek saglabāti failā 
-        
+    
