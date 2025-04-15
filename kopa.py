@@ -15,7 +15,7 @@ class Dati: #iegūst visus vajadzīgos datus
                 izveletais_datums = datetime.strptime(input('Kļūda! Datums nedrīkst būt agrāks par rītdienu: '),'%d-%m-%Y')
             else:
                 print('====================')
-                datums1,nevajadzigs = str(izveletais_datums).split(' ') #atdala laiku
+                datums1,laiks = str(izveletais_datums).split(' ') #atdala laiku
                 return datums1  #atgriež izvēlēto datumu          
 
 
@@ -35,11 +35,11 @@ class Dati: #iegūst visus vajadzīgos datus
             try:    
                 while True: #Reisa izvēle
                     izvele = int(input("=> "))
-                    if izvele in range(1,11):
+                    if izvele in range(1,11): #Ja izvēle der 
                         print("====================")
-                        return saraksts[izvele-1]
+                        return saraksts[izvele-1]#tad atgriež
                     else:
-                        print("Kļūda! Šāds reiss neeksistē! ")
+                        print("Kļūda! Šāds reiss neeksistē! ") #Ja neder tad jāireraksta vēlreiz
             except ValueError:
                 print('Skaitlim jābūt no 1 līdz 10!!')
 
@@ -53,10 +53,10 @@ class Dati: #iegūst visus vajadzīgos datus
         'D1','D2','D3','D4','D5','D6','D7','D8','D9','D10',
         'E1','E2','E3','E4','E5','E6','E7','E8','E9','E10']
 
-        skaits_ko_iznem = random.randint(0,49)
+        skaits_ko_iznem = random.randint(0,49) #nejauši izvēlas kādu skaitu sēdvietas izņems
         for i in range(skaits_ko_iznem):
-            kuru_sedvietu_izdzes = random.randint(0,len(visas_sedvietas)-1)
-            visas_sedvietas.remove(visas_sedvietas[kuru_sedvietu_izdzes])
+            kuru_sedvietu_izdzes = random.randint(0,len(visas_sedvietas)-1) #izvēlas nejaušu sēdvietu
+            visas_sedvietas.remove(visas_sedvietas[kuru_sedvietu_izdzes])#izņem izvēlēto sēdvietu
 
         prieks_izdrukasanas = visas_sedvietas[0]
         for i in range(1,len(visas_sedvietas)):
@@ -117,6 +117,7 @@ while True:
     bilete = Saglaba(Dati.datums(),Dati.reisa_izvele(),Dati.sedvietas())
     dati = bilete.biletes_parbaude()
     if dati == '':
-        bilete.saglabat(dati)
-    else:
         print()
+    else:
+        bilete.saglabat(dati)
+        
