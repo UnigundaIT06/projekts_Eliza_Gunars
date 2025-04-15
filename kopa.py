@@ -25,12 +25,14 @@ class Dati: #iegūst visus vajadzīgos datus
         reisa_numurs = [234, 156, 780, 356, 987, 404, 342, 764, 900, 135]
         reisa_galamerkis = ["Vācija", "Francija", "Nīderlande", "Polija", "Spānija", "Itālija", "Portugāle", "Grieķija", "Dānija", "Zviedrija"]
         reisa_laiks = ["10-10", "18-35", "09-15", "05-30", "12-00", "15-00", "23-30", "22-10", "13-00", "05-20"]
+        ieteicamais_laiks = ["08-10", "16-35", "07-15", "03-30", "10-00", "13-00", "21-30", "20-10", "11-00", "03-20"]
         reisa_cena = ["47 EUR", "150 EUR", "3734 EUR", "10000 EUR", "265 EUR", "354 EUR", "1200 EUR", "570 EUR", "988 EUR", "155 EUR"]
         print("Reisa izvēle: ")
         #For cikls, kas iziet cauri sarakstiem izprintējot random teikumus
         for n in range(1,11):
-            saraksts.append(reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena)) #Lai vēlāk var izēlēties reisu
-            print(n,saraksts[n-1]) 
+            saraksts.append(reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena,ieteicamais_laiks)) #Lai vēlāk var izēlēties reisu
+            bilete, ieteicamais_laiks_nesvarigs = saraksts[n-1].split('+++')#noņem ieteicamo ierašanās laiku
+            print(n,bilete) 
         while True:
             try:    
                 while True: #Reisa izvēle
@@ -41,7 +43,7 @@ class Dati: #iegūst visus vajadzīgos datus
                     else:
                         print("Kļūda! Šāds reiss neeksistē! ") #Ja neder tad jāireraksta vēlreiz
             except ValueError:
-                print('Ievadiet skaitli no 1 - 10!')
+                print('Skaitlim jābūt no 1 līdz 10!!')
 
    
 
@@ -75,43 +77,46 @@ class Dati: #iegūst visus vajadzīgos datus
                 return izveleta_sedvieta
 
 
-def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena):
+def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena,ieteicamais_reisa_laiks):
     reiss = random.choice(reisa_numurs)
     galamerkis = random.choice(reisa_galamerkis)
-    laiks = random.choice(reisa_laiks)
+    laikscipars = random.choice(range(0,10))
+    laiks = reisa_laiks[laikscipars]
+    ieteicamais_laiks = ieteicamais_reisa_laiks[laikscipars]
     cena = random.choice(reisa_cena)
-    return f"{reiss} - {galamerkis} - {laiks} - {cena}"
+    return f"{reiss} - {galamerkis} - {laiks} - {cena}+++{ieteicamais_laiks}"
 
 
-class Saglaba: #Tiek veikta datu saglabāšana
+class Saglaba:#Tiek veikta datu saglabāšana
     def __init__(self,datums,reiss,sedvieta):
         self.datums = datums
         self.reiss = reiss
         self.sedvieta = sedvieta
     
     def saglabat(self,dati):
-        dati1,numurs = dati.split('+++')
-        nosaukums = f'Bilete_{numurs}'
+        dati1,nummurs,ieteicamais_laiks = dati.split('+++')
+        nosaukums = f'Bilete_{nummurs}'
         with open(nosaukums+'.txt','a',encoding='utf8')as file:
-            file.write(dati1) #Izvēlētā biļete tiek ierakstīta failā
+            file.write('Datums - Galapunkts - Laiks - Reiss - Sēdvieta - Cena - ieteicamais ierašanās laiks\n')
+            file.write(f'{dati1} - {ieteicamais_laiks}\n')#Izvēlētā biļete tiek ierakstīta failā
             exit(f'Biļete ir saglabāta failā {nosaukums} un aizsūtīta uz jūsu e-pastu!')
 
     def biletes_parbaude(self):
         print('Vai šī ir jūsu biļete? (J/N)')
         print('Datums - Galapunkts - Laiks - Reiss - Sēdvieta - Cena')
-        numurs,valsts,laiks,cena = self.reiss.split(' - ')
-        dati = f'{self.datums} - {valsts} - {laiks} - {numurs} - {self.sedvieta} - {cena}'
+        nummurs,valsts,laiks,cena = self.reiss.split(' - ')
+        cena,ieteicamais_laiks = cena.split('+++')
+        dati = f'{self.datums} - {valsts} - {laiks} - {nummurs} - {self.sedvieta} - {cena}'
         print(dati)
         while True:
-            izvele = input('=> ') #Lietotājs izvēlas vai biļete viņam der vai neder
+            izvele = input('=> ')#Lietotājs izvēlas vai biļete viņam der vai neder
             if izvele == 'J' or izvele == 'j':
-                print("* * * Paldies, ka lietojāt lidO2 programmu!. \n* * * Tiekamies atkal!")
-                return f'{dati}+++{numurs}' 
+                return f'{dati}+++{nummurs}+++{ieteicamais_laiks}' 
             elif izvele == 'N' or izvele == 'n':
-                print('Reisa izvēle ir jāsāk no sākuma! ')
+                print('Atvainojos par traucēšanu bet viss jāsāk no sākuma!!')
                 break
             else:
-                print('Jūs ievadījāt nepareizi ievadiet vēlreiz (J/N)')
+                print('jūs ievadijāt nepareizi ievadiet vēlreiz (J/N)')
         
 
 while True:
@@ -120,5 +125,5 @@ while True:
     if dati == '':
         print()
     else:
-        bilete.saglabat(dati) #Dati tiek saglabāti failā 
-    
+        bilete.saglabat(dati)
+     #Dati tiek saglabāti failā 
