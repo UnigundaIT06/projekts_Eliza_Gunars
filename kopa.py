@@ -77,7 +77,7 @@ class Dati: #iegūst visus vajadzīgos datus
                 return izveleta_sedvieta
 
 
-def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena,ieteicamais_reisa_laiks):
+def reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena,ieteicamais_reisa_laiks):#nejauši izvēlas no iepriiekšējiem sarakstiem
     reiss = random.choice(reisa_numurs)
     galamerkis = random.choice(reisa_galamerkis)
     laikscipars = random.choice(range(0,10))
