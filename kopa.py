@@ -106,20 +106,20 @@ class Saglaba:#Tiek veikta datu saglabāšana
     def biletes_parbaude(self):
         print('Vai šī ir jūsu biļete? (J/N)')
         print('Datums - Galapunkts - Laiks - Reiss - Sēdvieta - Cena')
-        nummurs,valsts,laiks,cena = self.reiss.split(' - ')
+        numurs,valsts,laiks,cena = self.reiss.split(' - ')
         cena,ieteicamais_laiks = cena.split('+++')
-        dati = f'{self.datums} - {valsts} - {laiks} - {nummurs} - {self.sedvieta} - {cena}'
+        dati = f'{self.datums} - {valsts} - {laiks} - {numurs} - {self.sedvieta} - {cena}'
         print(dati)
         while True:
             izvele = input('=> ')#Lietotājs izvēlas vai biļete viņam der vai neder
             if izvele == 'J' or izvele == 'j':
-                return f'{dati}+++{nummurs}+++{ieteicamais_laiks}' 
+                return f'{dati}+++{numurs}+++{ieteicamais_laiks}' 
             elif izvele == 'N' or izvele == 'n':
-                print('Atvainojos par traucēšanu bet viss jāsāk no sākuma!!')
+                print('Reisa izvēle jāsāk no sākuma!')
                 print('====================')
                 break
             else:
-                print('jūs ievadijāt nepareizi ievadiet vēlreiz (J/N)')
+                print('Jūs ievadījāt nepareizu lielumu ievadiet vēlreiz (J/N)')
         return ''
         
 
