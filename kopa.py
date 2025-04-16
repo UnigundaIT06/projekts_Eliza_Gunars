@@ -116,9 +116,11 @@ class Saglaba:#Tiek veikta datu saglabāšana
                 return f'{dati}+++{nummurs}+++{ieteicamais_laiks}' 
             elif izvele == 'N' or izvele == 'n':
                 print('Atvainojos par traucēšanu bet viss jāsāk no sākuma!!')
+                print('====================')
                 break
             else:
                 print('jūs ievadijāt nepareizi ievadiet vēlreiz (J/N)')
+        return ''
         
 
 while True:
