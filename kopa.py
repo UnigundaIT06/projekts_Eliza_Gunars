@@ -40,6 +40,7 @@ class Dati: #iegūst visus vajadzīgos datus
         while True:
             try:    
                 while True: #Reisa izvēle
+                    print("Ievadiet skaitli no 1- 10, lai izvēlētos attiecīgo reisu.")
                     izvele = int(input("=> "))
                     if izvele in range(1,11): #Ja izvēle der 
                         print("====================")
