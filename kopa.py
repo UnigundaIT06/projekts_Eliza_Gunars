@@ -9,14 +9,18 @@ class Dati: #iegūst visus vajadzīgos datus
         datums = datums_ar_laiku.strftime('%d-%m-%Y')
         from datetime import datetime
         datetime_datums = datetime.strptime(datums,'%d-%m-%Y')#noformē datumu
-        izveletais_datums = datetime.strptime(input('Ieraksti datumu kurā gribi lidot dd-mm-gggg: '),'%d-%m-%Y')
-        while True: #Ja datums neder
-            if izveletais_datums <= datetime_datums:
-                izveletais_datums = datetime.strptime(input('Kļūda! Datums nedrīkst būt agrāks par rītdienu: '),'%d-%m-%Y')
-            else:
-                print('====================')
-                datums1,laiks = str(izveletais_datums).split(' ') #atdala laiku
-                return datums1  #atgriež izvēlēto datumu          
+        while True:
+            try:
+                izveletais_datums = datetime.strptime(input('Ieraksti datumu kurā gribi lidot dd-mm-gggg: '),'%d-%m-%Y')
+                while True: #Ja datums neder
+                    if izveletais_datums <= datetime_datums:
+                        izveletais_datums = datetime.strptime(input('Kļūda! Datums nedrīkst būt agrāks par rītdienu: '),'%d-%m-%Y')
+                    else:
+                        print('====================')
+                        datums1,laiks = str(izveletais_datums).split(' ') #atdala laiku
+                        return datums1  #atgriež izvēlēto datumu          
+            except Exception as e:
+                print('nepareizs formāts!!')
 
 
     def reisa_izvele():
