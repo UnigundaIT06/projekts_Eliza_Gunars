@@ -37,10 +37,10 @@ class Dati: #iegūst visus vajadzīgos datus
             saraksts.append(reiss(reisa_numurs, reisa_galamerkis, reisa_laiks, reisa_cena,ieteicamais_laiks)) #Lai vēlāk var izēlēties reisu
             bilete, ieteicamais_laiks_nesvarigs = saraksts[n-1].split('+++')#noņem ieteicamo ierašanās laiku
             print(n,bilete) 
+        print("Ievadiet skaitli (1-10), lai izvēlētos attiecīgo reisu.")
         while True:
             try:    
                 while True: #Reisa izvēle
-                    print("Ievadiet skaitli (1-10), lai izvēlētos attiecīgo reisu.")
                     izvele = int(input("=> "))
                     if izvele in range(1,11): #Ja izvēle der 
                         print("====================")
