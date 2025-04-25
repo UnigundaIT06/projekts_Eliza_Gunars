@@ -20,7 +20,7 @@ class Dati: #iegūst visus vajadzīgos datus
                         datums1,laiks = str(izveletais_datums).split(' ') #atdala laiku
                         return datums1  #atgriež izvēlēto datumu          
             except Exception as e:
-                print('nepareizs formāts!!')
+                print('Nepareizs formāts!!')
 
 
     def reisa_izvele():
