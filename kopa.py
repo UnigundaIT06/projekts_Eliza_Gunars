@@ -48,7 +48,7 @@ class Dati: #iegūst visus vajadzīgos datus
                     else:
                         print("Kļūda! Šāds reiss neeksistē! ") #Ja neder tad jāireraksta vēlreiz
             except ValueError:
-                print('Skaitlim jābūt no 1 līdz 10!!')
+                print()
 
    
 
